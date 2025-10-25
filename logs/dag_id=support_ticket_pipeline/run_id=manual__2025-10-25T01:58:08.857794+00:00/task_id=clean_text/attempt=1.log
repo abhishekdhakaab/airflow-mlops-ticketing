@@ -1,0 +1,19 @@
+[2025-10-25T01:58:39.667+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-25T01:58:39.724+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: support_ticket_pipeline.clean_text manual__2025-10-25T01:58:08.857794+00:00 [queued]>
+[2025-10-25T01:58:39.733+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: support_ticket_pipeline.clean_text manual__2025-10-25T01:58:08.857794+00:00 [queued]>
+[2025-10-25T01:58:39.733+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-25T01:58:39.749+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): clean_text> on 2025-10-25 01:58:08.857794+00:00
+[2025-10-25T01:58:39.764+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'support_ticket_pipeline', 'clean_text', 'manual__2025-10-25T01:58:08.857794+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/support_ticket_pipeline.py', '--cfg-path', '/tmp/tmpovmdt40x']
+[2025-10-25T01:58:39.769+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask clean_text
+[2025-10-25T01:58:39.769+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=54) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-25T01:58:39.775+0000] {standard_task_runner.py:64} INFO - Started process 64 to run task
+[2025-10-25T01:58:39.956+0000] {task_command.py:426} INFO - Running <TaskInstance: support_ticket_pipeline.clean_text manual__2025-10-25T01:58:08.857794+00:00 [running]> on host 120c55d1f138
+[2025-10-25T01:58:40.217+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='support_ticket_pipeline' AIRFLOW_CTX_TASK_ID='clean_text' AIRFLOW_CTX_EXECUTION_DATE='2025-10-25T01:58:08.857794+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-25T01:58:08.857794+00:00'
+[2025-10-25T01:58:40.220+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-25T01:58:40.468+0000] {logging_mixin.py:188} INFO - Cleaned text saved to /opt/***/data/processed/tickets_clean_20251025.parquet
+[2025-10-25T01:58:40.474+0000] {python.py:237} INFO - Done. Returned value was: /opt/***/data/processed/tickets_clean_20251025.parquet
+[2025-10-25T01:58:40.482+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-25T01:58:40.618+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=support_ticket_pipeline, task_id=clean_text, run_id=manual__2025-10-25T01:58:08.857794+00:00, execution_date=20251025T015808, start_date=20251025T015839, end_date=20251025T015840
+[2025-10-25T01:58:40.825+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-10-25T01:58:41.122+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-25T01:58:41.141+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

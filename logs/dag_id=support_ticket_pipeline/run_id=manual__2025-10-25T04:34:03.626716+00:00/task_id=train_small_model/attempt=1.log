@@ -1,0 +1,55 @@
+[2025-10-25T04:36:42.802+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-25T04:36:42.892+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: support_ticket_pipeline.train_small_model manual__2025-10-25T04:34:03.626716+00:00 [queued]>
+[2025-10-25T04:36:42.927+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: support_ticket_pipeline.train_small_model manual__2025-10-25T04:34:03.626716+00:00 [queued]>
+[2025-10-25T04:36:42.929+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-25T04:36:43.020+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): train_small_model> on 2025-10-25 04:34:03.626716+00:00
+[2025-10-25T04:36:43.073+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'support_ticket_pipeline', 'train_small_model', 'manual__2025-10-25T04:34:03.626716+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/support_ticket_pipeline.py', '--cfg-path', '/tmp/tmpe1sodkxo']
+[2025-10-25T04:36:43.091+0000] {standard_task_runner.py:91} INFO - Job 47: Subtask train_small_model
+[2025-10-25T04:36:43.089+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=936) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-25T04:36:43.096+0000] {standard_task_runner.py:64} INFO - Started process 948 to run task
+[2025-10-25T04:36:43.294+0000] {task_command.py:426} INFO - Running <TaskInstance: support_ticket_pipeline.train_small_model manual__2025-10-25T04:34:03.626716+00:00 [running]> on host 120c55d1f138
+[2025-10-25T04:36:43.531+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='support_ticket_pipeline' AIRFLOW_CTX_TASK_ID='train_small_model' AIRFLOW_CTX_EXECUTION_DATE='2025-10-25T04:34:03.626716+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-25T04:34:03.626716+00:00'
+[2025-10-25T04:36:43.534+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-25T04:36:46.663+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-25T04:36:46.666+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/support_ticket_pipeline.py", line 159, in train_small_model
+    X_train, X_val, y_train, y_val = train_test_split(
+                                     ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_split.py", line 2806, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_split.py", line 1843, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_split.py", line 2265, in _iter_indices
+    raise ValueError(
+ValueError: The test_size = 2 should be greater or equal to the number of classes = 3
+[2025-10-25T04:36:46.727+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=support_ticket_pipeline, task_id=train_small_model, run_id=manual__2025-10-25T04:34:03.626716+00:00, execution_date=20251025T043403, start_date=20251025T043642, end_date=20251025T043646
+[2025-10-25T04:36:46.757+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 47 for task train_small_model (The test_size = 2 should be greater or equal to the number of classes = 3; 948)
+[2025-10-25T04:36:46.830+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-25T04:36:46.915+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-25T04:36:46.918+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

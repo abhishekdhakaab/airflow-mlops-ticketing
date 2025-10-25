@@ -1,0 +1,18 @@
+[2025-10-25T01:58:31.486+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-25T01:58:31.526+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: support_ticket_pipeline.extract_tickets manual__2025-10-25T01:58:08.857794+00:00 [queued]>
+[2025-10-25T01:58:31.533+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: support_ticket_pipeline.extract_tickets manual__2025-10-25T01:58:08.857794+00:00 [queued]>
+[2025-10-25T01:58:31.534+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-25T01:58:31.545+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_tickets> on 2025-10-25 01:58:08.857794+00:00
+[2025-10-25T01:58:31.579+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=44) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-25T01:58:31.581+0000] {standard_task_runner.py:64} INFO - Started process 53 to run task
+[2025-10-25T01:58:31.574+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'support_ticket_pipeline', 'extract_tickets', 'manual__2025-10-25T01:58:08.857794+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/support_ticket_pipeline.py', '--cfg-path', '/tmp/tmpx4ou9v9c']
+[2025-10-25T01:58:31.584+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask extract_tickets
+[2025-10-25T01:58:31.729+0000] {task_command.py:426} INFO - Running <TaskInstance: support_ticket_pipeline.extract_tickets manual__2025-10-25T01:58:08.857794+00:00 [running]> on host 120c55d1f138
+[2025-10-25T01:58:31.941+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='support_ticket_pipeline' AIRFLOW_CTX_TASK_ID='extract_tickets' AIRFLOW_CTX_EXECUTION_DATE='2025-10-25T01:58:08.857794+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-25T01:58:08.857794+00:00'
+[2025-10-25T01:58:31.945+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-25T01:58:32.156+0000] {python.py:237} INFO - Done. Returned value was: /opt/***/data/interim/tickets_20251025.parquet
+[2025-10-25T01:58:32.157+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-25T01:58:32.200+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=support_ticket_pipeline, task_id=extract_tickets, run_id=manual__2025-10-25T01:58:08.857794+00:00, execution_date=20251025T015808, start_date=20251025T015831, end_date=20251025T015832
+[2025-10-25T01:58:32.224+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-10-25T01:58:32.263+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-25T01:58:32.265+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
